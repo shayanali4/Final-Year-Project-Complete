@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Year Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDeIcNKX71d1oDx_o298rCsbZIU43ybsik",
+          authDomain: "finalyear-17dc5.firebaseapp.com",
+          databaseURL: "https://finalyear-17dc5.firebaseio.com",
+          projectId: "finalyear-17dc5",
+          storageBucket: "finalyear-17dc5.appspot.com",
+          messagingSenderId: "611254349596",
+          appId: "1:611254349596:web:84a03e90bbf48bb11694d9",
+          measurementId: "G-240346WFWS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+ 
+
+
+
+
+
+
+
+</head>
+<body>
+    <div class="title">
+        <h1>Welcome to Control Panel !</h1>
+        <p>Here you can monitor and control the process</p>
+    </div>
+    <div class="body">
+        <div class="main">
+            <div class="monitor">
+                <div class="prox">
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Proximity Sensor # 1</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text"  id="prsen1" ></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Proximity Sensor # 2</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text" id="prsen2">1</h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Proximity Sensor # 3</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text" id="prsen3"></h3>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="temp">
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Temperature Sensor # 1</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text" id="temp1"></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Temperature Sensor # 2</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text" id="temp2" ></h3>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="box">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <p>Temperature Sensor # 3</p>
+                            </div>
+                            <div class="card-body">
+                              <!-- <p class="card-title">1</p> -->
+                              <h3 class="card-text" id="temp3"></h3>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control">
+                <div>
+                          <a href="#" id="emergency" onclick='emergency(5)' class="button">Emergency Button</a>
+                </div>
+                <div>
+                    <div class="card text-center">
+                        <div class="card-header">
+                          <p>Set Temperature</p>
+                          <button type="button" class="btn btn-secondary" onclick='settemp()'>Set</button>
+                        </div>
+                        <div class="card-body">
+                          <!-- <p class="card-title">1</p> -->
+                          <h3 class="card-text" id="setTemp"></h3>
+                        </div>
+                      </div>
+                </div>
+                <div>
+                    <div class="card text-center">
+                        <div class="card-header">
+                          <p>Average Temperature </p>
+                        </div>
+                        <div class="card-body">
+                          <!-- <p class="card-title">1</p> -->
+                          <h3 class="card-text" id="average"  >1</h3>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7J4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="app.js" ></script>
+
+    </html>
